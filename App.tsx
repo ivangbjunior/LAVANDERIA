@@ -25,7 +25,8 @@ import {
   Wind,
   Shirt,
   ShoppingBasket,
-  Droplets
+  Droplets,
+  UserCog
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -75,20 +76,29 @@ const App: React.FC = () => {
       --------------------------------------------------------------------------- */}
       <aside className={`
         fixed inset-y-0 left-0 z-50 w-64 bg-brand-900 text-white transform transition-transform duration-300 ease-in-out shadow-2xl
-        md:relative md:translate-x-0
+        md:relative md:translate-x-0 flex flex-col
         ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
-        <div className="p-6 border-b border-brand-800 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold">AL</div>
-            <span className="font-bold text-lg tracking-tight">All Laundry</span>
-          </div>
-          <button onClick={() => setIsMobileMenuOpen(false)} className="md:hidden text-brand-200">
-            <X />
+        {/* CABEÇALHO COM LOGOTIPO */}
+        <div className="p-4 border-b border-brand-800 flex flex-col items-center justify-center relative shrink-0">
+           <button 
+             onClick={() => setIsMobileMenuOpen(false)} 
+             className="md:hidden absolute top-4 right-4 text-brand-200 hover:text-white transition-colors"
+           >
+            <X size={24} />
           </button>
+
+          <div className="flex flex-col items-center gap-2">
+            <div className="bg-brand-50 p-1.5 rounded-lg shadow-lg shadow-brand-950/30">
+               <WashingMachine className="w-6 h-6 text-brand-700" strokeWidth={2.5} />
+            </div>
+            <span className="font-black text-sm tracking-wider text-brand-50 uppercase text-center leading-tight">
+              All Laundry
+            </span>
+          </div>
         </div>
 
-        <nav className="p-4 space-y-2">
+        <nav className="p-3 space-y-1 overflow-y-auto flex-1">
           {MENU_ITEMS.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -99,7 +109,7 @@ const App: React.FC = () => {
                   setActiveTab(item.id);
                   setIsMobileMenuOpen(false);
                 }}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 font-medium text-sm
+                className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-200 font-medium text-sm
                   ${isActive 
                     ? 'bg-brand-500 text-white shadow-lg shadow-brand-900/50 translate-x-1' 
                     : 'text-brand-100 hover:bg-brand-800 hover:text-white'}
@@ -111,11 +121,6 @@ const App: React.FC = () => {
             );
           })}
         </nav>
-
-        <div className="absolute bottom-0 left-0 w-full p-6 bg-brand-950/30">
-          <p className="text-xs text-brand-400 uppercase font-bold mb-1">Apresentação</p>
-          <p className="text-sm text-brand-100">Residencial Turim</p>
-        </div>
       </aside>
 
       {/* ---------------------------------------------------------------------------
@@ -125,7 +130,10 @@ const App: React.FC = () => {
         
         {/* Header Mobile */}
         <div className="md:hidden p-4 bg-white shadow-sm flex items-center justify-between z-40">
-          <span className="font-bold text-brand-900">All Laundry</span>
+          <div className="flex items-center gap-2">
+            <WashingMachine className="w-6 h-6 text-brand-600" />
+            <span className="font-bold text-brand-900 uppercase tracking-wide">All Laundry</span>
+          </div>
           <button onClick={() => setIsMobileMenuOpen(true)} className="text-brand-900">
             <Menu />
           </button>
@@ -306,13 +314,31 @@ const SlideComoFunciona: React.FC = () => (
        </p>
     </div>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
        <Step number="1" title="Projeto Personalizado" desc="Adequamos o layout ao espaço disponível no condomínio." />
        <Step number="2" title="Reforma e Instalação" desc="Toda a infraestrutura e obra civil é por nossa conta." />
        <Step number="3" title="Gestão Completa" desc="Manutenção preventiva, limpeza e insumos inclusos." />
        <Step number="4" title="Operação Digital" desc="100% controlada por App, sem necessidade de fichas." />
        <Step number="5" title="Suporte e Reposição" desc="Equipe técnica dedicada para atender qualquer chamado." />
        <Step number="6" title="Dosagem Automática" desc="Sabão e amaciante injetados automaticamente na máquina." />
+    </div>
+
+    {/* RODAPÉ INFORMATIVO SOBRE O SÍNDICO */}
+    <div className="bg-brand-900 text-white p-6 rounded-2xl shadow-lg flex flex-col md:flex-row items-center gap-6 border border-brand-800 transform translate-y-2">
+      <div className="bg-brand-700 p-4 rounded-full flex-shrink-0 shadow-inner">
+        <UserCog className="w-8 h-8 text-brand-100" />
+      </div>
+      <div className="text-center md:text-left">
+        <h3 className="text-xl font-bold text-brand-50 mb-1 flex items-center justify-center md:justify-start gap-2">
+          <ShieldCheck className="w-5 h-5 text-brand-300" />
+          Sem Trabalho para o Síndico
+        </h3>
+        <p className="text-brand-100/90 text-sm md:text-base leading-relaxed">
+          A administração do condomínio <strong>não realiza nenhum serviço operacional</strong>. 
+          Não há venda de fichas, limpeza do espaço, abastecimento de produtos ou manutenção das máquinas. 
+          Tudo é feito pela equipe All Laundry.
+        </p>
+      </div>
     </div>
   </div>
 );
