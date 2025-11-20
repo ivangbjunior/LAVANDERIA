@@ -1,7 +1,17 @@
 import { GoogleGenAI } from "@google/genai";
 
-// Initialize the client
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Lazy initialization to prevent crash on load if process.env is missing or undefined in browser
+let aiClient: GoogleGenAI | null = null;
+
+const getAiClient = () => {
+  if (!aiClient) {
+    // Safety check: ensure process.env exists, otherwise default to empty string to avoid crash
+    // The actual API call will fail if key is missing, but the app will load.
+    const apiKey = (typeof process !== 'undefined' && process.env.API_KEY) ? process.env.API_KEY : '';
+    aiClient = new GoogleGenAI({ apiKey });
+  }
+  return aiClient;
+};
 
 const SYSTEM_INSTRUCTION = `
 Você é o consultor especialista da "All Laundry Lavanderia Express".
@@ -27,6 +37,7 @@ Objetivo: Ajudar a aprovar a pauta na assembleia.
 
 export const askObjectionHandler = async (question: string): Promise<string> => {
   try {
+    const ai = getAiClient();
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: question,

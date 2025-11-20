@@ -32,6 +32,12 @@
         }
       }
     </script>
+    <script>
+      // Polyfill para evitar erro "process is not defined" no navegador
+      if (typeof process === "undefined") {
+        window.process = { env: { API_KEY: '' } };
+      }
+    </script>
     <style>
       html { scroll-behavior: smooth; }
       ::-webkit-scrollbar { width: 8px; }
@@ -54,5 +60,6 @@
 </head>
   <body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-200 selection:text-brand-900">
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
