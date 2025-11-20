@@ -402,78 +402,78 @@ const SlideResultados: React.FC = () => (
 
 const SlideAmbiente: React.FC = () => (
   <div className="w-full">
-    <div className="mb-12 border-b border-slate-200 pb-6">
-      <h2 className="text-4xl font-bold text-brand-900">Infraestrutura e Ambiente</h2>
-      <p className="text-xl text-slate-500 mt-2">Um espaço pensado para o seu conforto e praticidade.</p>
+    <div className="mb-6 border-b border-slate-200 pb-4">
+      <h2 className="text-3xl font-bold text-brand-900">Infraestrutura e Ambiente</h2>
+      <p className="text-lg text-slate-500 mt-1">Um espaço pensado para o seu conforto e praticidade.</p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       <AmenityCard 
-        icon={<Wind className="w-10 h-10 text-brand-500" />} 
+        icon={<Wind className="w-6 h-6 text-brand-500" />} 
         title="Ambiente Climatizado" 
         desc="Espaço sempre fresco e ventilado para o seu conforto." 
       />
       <AmenityCard 
-        icon={<Tv className="w-10 h-10 text-brand-500" />} 
+        icon={<Tv className="w-6 h-6 text-brand-500" />} 
         title="Smart TV" 
         desc="Entretenimento garantido enquanto você aguarda o ciclo." 
       />
       <AmenityCard 
-        icon={<Wifi className="w-10 h-10 text-brand-500" />} 
+        icon={<Wifi className="w-6 h-6 text-brand-500" />} 
         title="Internet Wi-Fi" 
         desc="Conexão de alta velocidade gratuita para moradores." 
       />
       <AmenityCard 
-        icon={<Armchair className="w-10 h-10 text-brand-500" />} 
+        icon={<Armchair className="w-6 h-6 text-brand-500" />} 
         title="Poltronas Confortáveis" 
         desc="Mobiliário ergonômico para descanso ou leitura." 
       />
       <AmenityCard 
-        icon={<Shirt className="w-10 h-10 text-brand-500" />} 
+        icon={<Shirt className="w-6 h-6 text-brand-500" />} 
         title="Bancada de Apoio" 
         desc="Espaço amplo e limpo para dobrar e organizar suas roupas." 
       />
       <AmenityCard 
-        icon={<ShoppingBasket className="w-10 h-10 text-brand-500" />} 
+        icon={<ShoppingBasket className="w-6 h-6 text-brand-500" />} 
         title="Cestos Medidores" 
         desc="Acessórios padronizados para facilitar o transporte." 
       />
       
-      <div className="md:col-span-2 lg:col-span-3 mt-4">
-        <div className="bg-brand-50 border border-brand-200 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8">
-          <div className="bg-white p-6 rounded-full shadow-md">
+      <div className="md:col-span-2 lg:col-span-3 mt-2">
+        <div className="bg-brand-50 border border-brand-200 rounded-xl p-5 flex flex-col md:flex-row items-center gap-6">
+          <div className="bg-white p-3 rounded-full shadow-sm">
             <div className="flex gap-2">
-              <WashingMachine className="w-8 h-8 text-brand-600" />
-              <WashingMachine className="w-8 h-8 text-brand-400" />
+              <WashingMachine className="w-6 h-6 text-brand-600" />
+              <WashingMachine className="w-6 h-6 text-brand-400" />
             </div>
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h3 className="text-2xl font-bold text-brand-900 mb-2">Capacidade de Atendimento</h3>
-            <p className="text-slate-600 text-lg">
-              Infraestrutura completa com <span className="font-bold text-brand-700">Dois Conjuntos</span> (Lavar e Secar) profissionais, garantindo disponibilidade e agilidade para todo o condomínio.
+            <h3 className="text-xl font-bold text-brand-900 mb-1">Capacidade de Atendimento</h3>
+            <p className="text-slate-600 text-sm">
+              Infraestrutura completa com <span className="font-bold text-brand-700">Dois Conjuntos</span> (Lavar e Secar) profissionais, garantindo disponibilidade.
             </p>
           </div>
         </div>
       </div>
 
       {/* Rodapé Insumos */}
-      <div className="md:col-span-2 lg:col-span-3 mt-6">
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-           <div className="flex flex-col gap-2 items-center md:items-start">
+      <div className="md:col-span-2 lg:col-span-3 mt-2">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
+           <div className="flex flex-col gap-1 items-center md:items-start">
               <div className="flex items-center gap-2 text-brand-600">
                 <Droplets className="w-5 h-5" />
-                <h3 className="text-lg font-bold text-brand-900">Insumos Inclusos de Primeira Linha</h3>
+                <h3 className="text-base font-bold text-brand-900">Insumos Inclusos de Primeira Linha</h3>
               </div>
-              <p className="text-slate-600 text-sm text-center md:text-left">Qualidade garantida em todas as lavagens com produtos originais e dosagem automática.</p>
+              <p className="text-slate-600 text-xs text-center md:text-left">Qualidade garantida em todas as lavagens com produtos originais e dosagem automática.</p>
            </div>
-           <div className="flex items-center gap-8 bg-slate-50 px-8 py-4 rounded-xl border border-slate-100">
+           <div className="flex items-center gap-6 bg-slate-50 px-6 py-3 rounded-lg border border-slate-100">
               <div className="flex flex-col items-center">
-                 <span className="text-3xl font-black text-[#003DA5] tracking-tighter">OMO</span>
+                 <span className="text-2xl font-black text-[#003DA5] tracking-tighter">OMO</span>
                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wide">Lavagem Profissional</span>
               </div>
-              <div className="w-px h-10 bg-slate-300"></div>
+              <div className="w-px h-8 bg-slate-300"></div>
               <div className="flex flex-col items-center">
-                 <span className="text-3xl font-bold text-[#E4007E] font-serif italic">Comfort</span>
+                 <span className="text-2xl font-bold text-[#E4007E] font-serif italic">Comfort</span>
                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wide">Maciez e Perfume</span>
               </div>
            </div>
@@ -633,12 +633,12 @@ const TimelineItem: React.FC<{ number: string, title: string, desc: string, alig
 );
 
 const AmenityCard: React.FC<{ icon: React.ReactNode, title: string, desc: string }> = ({ icon, title, desc }) => (
-  <div className="bg-white p-6 rounded-2xl shadow-md border border-slate-100 hover:border-brand-300 hover:shadow-lg transition-all duration-300 group">
-    <div className="mb-4 bg-brand-50 w-16 h-16 rounded-xl flex items-center justify-center group-hover:bg-brand-100 transition-colors">
+  <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100 hover:border-brand-300 hover:shadow-md transition-all duration-300 group h-full">
+    <div className="mb-3 bg-brand-50 w-12 h-12 rounded-lg flex items-center justify-center group-hover:bg-brand-100 transition-colors">
       {icon}
     </div>
-    <h3 className="text-xl font-bold text-slate-900 mb-2">{title}</h3>
-    <p className="text-slate-500 text-sm leading-relaxed">{desc}</p>
+    <h3 className="text-lg font-bold text-slate-900 mb-1">{title}</h3>
+    <p className="text-slate-500 text-xs leading-relaxed">{desc}</p>
   </div>
 );
 
