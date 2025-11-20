@@ -196,7 +196,7 @@ const SlideIntro: React.FC = () => (
 const SlideNossaEmpresa: React.FC = () => (
   <div className="w-full">
     <div className="mb-12 border-b border-slate-200 pb-6">
-      <h2 className="text-4xl font-bold text-slate-900">Nossa Empresa</h2>
+      <h2 className="text-4xl font-bold text-brand-900">Nossa Empresa</h2>
       <p className="text-xl text-slate-500 mt-2">Soluções completas em lavanderia de autosserviço.</p>
     </div>
 
